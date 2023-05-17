@@ -1,6 +1,6 @@
 vim.cmd("source ~/.vimrc")
 
-local modules = { 'config', 'keybindings' }
+local modules = { 'config', 'keybindings', 'packages' }
 
 for _, module in pairs(modules) do
   package.loaded[module] = nil
