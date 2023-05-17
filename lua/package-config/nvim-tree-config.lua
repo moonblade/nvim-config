@@ -1,3 +1,11 @@
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -25,3 +33,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end
 })
+
+map("n", "]", ":NvimTreeFindFile<CR>")

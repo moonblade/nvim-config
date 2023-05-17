@@ -13,10 +13,3 @@ function bufmap(mode, lhs, rhs, opts)
     end
     vim.api.nvim_buf_set_keymap(mode, lhs, rhs, options)
 end
-
-module = {
-  map = map
-  bufmap = bufmap
-}
-
-return module

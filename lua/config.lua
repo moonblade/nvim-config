@@ -49,4 +49,5 @@ vim.opt.iskeyword:remove("_")
 -- Dont create swapfiles
 -- vim.opt.swapfile = false
 
-
+-- use utf-8 by default
+vim.opt.encoding = "utf-8"
