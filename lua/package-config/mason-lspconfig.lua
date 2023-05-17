@@ -1,7 +1,8 @@
 require("mason-lspconfig").setup({
   ensure_installed = {
     "pyright",
-    "tflint"
+    "terraform-ls",
+    "tflint",
   },
 })
 require("mason-lspconfig").setup_handlers({
