@@ -1,0 +1,8 @@
+vim.cmd("source ~/.vimrc")
+
+local modules = { 'config', 'keybindings' }
+
+for _, module in pairs(modules) do
+  package.loaded[module] = nil
+  require(module)
+end
