@@ -22,6 +22,22 @@ require("packer").startup({
     })
     use("neovim/nvim-lspconfig")
 
+    -- nvim tree
+    use {
+        "nvim-tree/nvim-tree.lua",
+        after = "nvim-web-devicons",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+          require("package-config.nvim-tree-config")
+        end
+    }
+    -- use("nvim-tree/nvim-web-devicons")
+    -- use {
+    --   "nvim-tree/nvim-tree.lua",
+    --   config = function()
+    --     require("package-config.nvim-tree-config")
+    --   end
+    -- }
   end,
   config = {
     display = {
