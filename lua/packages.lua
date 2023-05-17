@@ -23,10 +23,22 @@ require("packer").startup({
     use("neovim/nvim-lspconfig")
 
     -- nvim tree
+    use 'kazhala/close-buffers.nvim'
     use {
       "nvim-tree/nvim-tree.lua",
+      requires = {
+        'nvim-tree/nvim-web-devicons',
+      },
       config = function()
         require("package-config.nvim-tree-config")
+      end
+    }
+
+    -- Better commenting 
+    use {
+      "numToStr/Comment.nvim",
+      config = function()
+          require("package-config.comment")
       end
     }
   end,

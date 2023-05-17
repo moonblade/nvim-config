@@ -1,8 +1,5 @@
-function map(mode, lhs, rhs, opts)
+function map(mode, lhs, rhs)
     local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
@@ -29,6 +26,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
   callback = function()
     if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+      require('close_buffers').delete({ type = 'all', force = true })
       vim.cmd "quit"
     end
   end
