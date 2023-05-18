@@ -69,11 +69,20 @@ require("packer").startup({
       end
     })
 
-    -- git gutter
+    -- Git gutter
+    -- use({
+    --   "airblade/vim-gitgutter",
+    --   config = function()
+    --     require("package-config.git-gutter")
+    --   end
+    -- })
+
+    -- Git signs
     use({
-      "airblade/vim-gitgutter",
+      "lewis6991/gitsigns.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
       config = function()
-        require("package-config.git-gutter")
+        require("package-config.gitsigns")
       end
     })
 
