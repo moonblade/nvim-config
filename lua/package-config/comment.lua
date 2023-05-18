@@ -2,6 +2,7 @@ require('Comment').setup()
 
 local api = require('Comment.api')
 vim.keymap.set('n', '<C-_>', api.toggle.linewise.current)
+vim.keymap.set('i', '<C-_>', api.toggle.linewise.current)
 
 local esc = vim.api.nvim_replace_termcodes(
   '<ESC>', true, false, true
