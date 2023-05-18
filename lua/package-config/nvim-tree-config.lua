@@ -13,7 +13,7 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
--- Auto open vim when startig
+-- Auto open nvimtree when startig
 vim.api.nvim_create_autocmd("VimEnter", { 
   callback = function()
     vim.cmd ":NvimTreeOpen"
