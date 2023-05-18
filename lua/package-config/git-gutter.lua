@@ -1,3 +1,6 @@
+-- Show gitgutter in a new column
+vim.opt.signcolumn = "yes"
+
 vim.g.gitgutter_override_sign_column_highlight = 0
 vim.g.gitgutter_sign_added = '+'
 vim.g.gitgutter_sign_modified = '±'
