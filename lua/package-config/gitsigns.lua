@@ -8,6 +8,8 @@ require("gitsigns").setup({
         vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
 
+		map("n", "<leader>s", "<cmd>Gitsigns blame_line<CR>")
+
 		map("n", "<leader>p", "<cmd>Gitsigns preview_hunk<CR>")
 		map("n", "<leader>u", "<cmd>Gitsigns reset_hunk<CR>")
   end

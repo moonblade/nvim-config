@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   print("Installing packer close and reopen Neovim...")
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the packages.lua file
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -40,6 +40,23 @@ require("packer").startup({
       end,
     })
     use("neovim/nvim-lspconfig")
+
+
+		-- auto-completion
+		use({
+			"hrsh7th/nvim-cmp",
+			requires = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-cmdline",
+				"L3MON4D3/LuaSnip",
+				"saadparwaiz1/cmp_luasnip",
+			},
+			config = function()
+				require("package-config.nvim-cmp")
+			end,
+		})
 
     -- nvim tree
     use 'kazhala/close-buffers.nvim'
