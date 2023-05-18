@@ -2,15 +2,15 @@
 vim.opt.signcolumn = "yes"
 
 require("gitsigns").setup({
-	on_attach = function(bufnr)
+  on_attach = function()
     local function map(mode, lhs, rhs)
         local options = { noremap = true, silent = true }
         vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
 
-		map("n", "<leader>s", "<cmd>Gitsigns blame_line<CR>")
+    map("n", "<leader>s", "<cmd>Gitsigns blame_line<CR>")
 
-		map("n", "<leader>p", "<cmd>Gitsigns preview_hunk<CR>")
-		map("n", "<leader>u", "<cmd>Gitsigns reset_hunk<CR>")
+    map("n", "<leader>p", "<cmd>Gitsigns preview_hunk<CR>")
+    map("n", "<leader>u", "<cmd>Gitsigns reset_hunk<CR>")
   end
 })
