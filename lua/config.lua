@@ -32,7 +32,7 @@ vim.opt.shortmess:append("c")
 
 -- better colours, no cursor, highlight current line
 vim.opt.termguicolors = true
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 
 -- mouse support
 vim.opt.mouse = "a"
@@ -52,3 +52,8 @@ vim.opt.iskeyword:remove("_")
 -- use utf-8 by default
 vim.opt.encoding = "utf-8"
 
+-- Share clipboard with os
+vim.opt.clipboard = "unnamed"
+
+-- More height for commands
+vim.opt.cmdheight = 2
