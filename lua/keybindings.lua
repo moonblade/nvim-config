@@ -1,5 +1,5 @@
 -- Functional wrapper for mapping custom keybindings
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -12,7 +12,6 @@ vim.g.mapleader = " "
 
 -- open and reload configs
 map("n", "<leader>,", [[:Telescope find_files cwd=$HOME/.config/nvim<cr>]])
-map("n", "<leader><", [[:luafile $HOME/.config/nvim/init.lua<CR>]])
 
 -- jk instead of escape
 map("i", "jk", "<esc>")
