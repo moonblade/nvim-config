@@ -133,6 +133,15 @@ require("packer").startup({
       end,
     })
 
+    -- Wild menu
+    use {
+      'gelguy/wilder.nvim',
+      config = function()
+        require("package-config.wilder")
+        -- config goes here
+      end,
+    }
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end

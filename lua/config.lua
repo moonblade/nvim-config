@@ -1,6 +1,7 @@
 -- relative line numbers for easier jumps
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.wo.wrap = false
 
 -- spilts to the bottom and to the right are more intuitive
 vim.opt.splitbelow = true
@@ -19,6 +20,7 @@ vim.opt.smartcase = true
 
 -- save undo files
 vim.opt.undofile = true
+vim.opt.undodir = '~/.vim/undodir'
 
 -- update chars used to render spaces and tabs
 vim.opt.listchars = { trail = ".", space = "·", tab = "»·" }
@@ -47,7 +49,7 @@ vim.opt.hlsearch = false
 vim.opt.iskeyword:remove("_")
 
 -- Dont create swapfiles
--- vim.opt.swapfile = false
+vim.opt.swapfile = false
 
 -- use utf-8 by default
 vim.opt.encoding = "utf-8"
@@ -57,3 +59,6 @@ vim.opt.clipboard = "unnamed"
 
 -- More height for commands
 vim.opt.cmdheight = 2
+
+-- When moving from unsaved buffer, dont scream
+vim.o.hidden = true
