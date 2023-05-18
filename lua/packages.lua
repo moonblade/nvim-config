@@ -103,6 +103,15 @@ require("packer").startup({
       end
     })
 
+    -- Status line at bottom for each buffer, lualine
+		use({
+			"nvim-lualine/lualine.nvim",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function()
+				require("package-config.lualine")
+			end,
+		})
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end

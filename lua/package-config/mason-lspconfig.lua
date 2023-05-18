@@ -8,13 +8,26 @@ require("mason-lspconfig").setup({
     "bashls",
   },
 })
+
 require("mason-lspconfig").setup_handlers({
     function (server_name)
-        capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         require("lspconfig")[server_name].setup {
           capabilities = capabilities,
         }
+    end,
+
+    ["lua_ls"] = function ()
+       require("lspconfig").lua_ls.setup {
+           settings = {
+               Lua = {
+                   diagnostics = {
+                       globals = { "vim", "use" }
+                   }
+               }
+           }
+       }
     end,
 })
 
@@ -30,4 +43,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   end
 })
-
