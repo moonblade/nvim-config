@@ -51,3 +51,4 @@ vim.opt.iskeyword:remove("_")
 
 -- use utf-8 by default
 vim.opt.encoding = "utf-8"
+
