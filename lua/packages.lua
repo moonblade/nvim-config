@@ -18,7 +18,7 @@ vim.cmd([[
 require("packer").startup({
   function()
     -- self manage packaging package
-    use({ 
+    use({
       "wbthomason/packer.nvim",
     })
 
@@ -29,7 +29,7 @@ require("packer").startup({
         config = function()
           require("package-config.mason")
         end,
-        run = ":MasonUpdate" 
+        run = ":MasonUpdate"
     }
 
     -- neovim lsp configs
@@ -42,21 +42,21 @@ require("packer").startup({
     use("neovim/nvim-lspconfig")
 
 
-		-- auto-completion
-		use({
-			"hrsh7th/nvim-cmp",
-			requires = {
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-cmdline",
-				"L3MON4D3/LuaSnip",
-				"saadparwaiz1/cmp_luasnip",
-			},
-			config = function()
-				require("package-config.nvim-cmp")
-			end,
-		})
+    -- auto-completion
+    use({
+      "hrsh7th/nvim-cmp",
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
+      },
+      config = function()
+        require("package-config.nvim-cmp")
+      end,
+    })
 
     -- nvim tree
     use 'kazhala/close-buffers.nvim'
@@ -79,11 +79,23 @@ require("packer").startup({
     }
 
     -- Color scheme
-    use({ 
-      "ellisonleao/gruvbox.nvim",
-      config = function()
-        require("package-config.gruvbox")
-      end
+    -- use({
+    --   "ellisonleao/gruvbox.nvim",
+    --   config = function()
+    --     require("package-config.gruvbox")
+    --   end
+    -- })
+    -- use({
+    --   "rakr/vim-one",
+    --   config = function()
+    --     require("package-config.one")
+    --   end
+    -- })
+    use({
+     "navarasu/onedark.nvim",
+     config = function()
+       require("package-config._onedark")
+     end,
     })
 
     -- Git gutter
@@ -97,20 +109,29 @@ require("packer").startup({
     -- Git signs
     use({
       "lewis6991/gitsigns.nvim",
-			requires = { "nvim-lua/plenary.nvim" },
+      requires = { "nvim-lua/plenary.nvim" },
       config = function()
         require("package-config.gitsigns")
       end
     })
 
     -- Status line at bottom for each buffer, lualine
-		use({
-			"nvim-lualine/lualine.nvim",
-			requires = { "kyazdani42/nvim-web-devicons" },
-			config = function()
-				require("package-config.lualine")
-			end,
-		})
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
+      config = function()
+        require("package-config.lualine")
+      end,
+    })
+
+    -- Better tokenizing with treesitter
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      config = function()
+        require("package-config._treesitter")
+      end,
+    })
 
     if PACKER_BOOTSTRAP then
       require('packer').sync()
