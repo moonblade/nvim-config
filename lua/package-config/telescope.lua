@@ -1,15 +1,19 @@
-local map = require("package-config.utils").map
-
 local resolve = require("telescope.config.resolve")
-local actions = require("telescope.actions")
 local builtin = require('telescope.builtin')
 
 require("telescope").setup({
   defaults = {
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
+        ["<esc>"] = "close",
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+        ["<C-o>"] = "select_default",
       },
+      n = {
+        ["<esc>"] = "close",
+        ["o"] = "select_default",
+      }
     },
     layout_config = {
       preview_width = resolve.resolve_width(0.5),
@@ -29,10 +33,16 @@ require("telescope").setup({
 })
 require("telescope").load_extension("fzy_native")
 
+local project_files = function()
+  vim.fn.system('git rev-parse --is-inside-work-tree')
+  if vim.v.shell_error == 0 then
+    require"telescope.builtin".git_files({})
+  else
+    require"telescope.builtin".find_files({})
+  end
+end
 
-vim.api.nvim_set_keymap('n', '<C-p>', builtin.git_files, {})
--- map('n', '<C-p>', builtin.git_files)
--- map('n', '<C-]>', builtin.find_files)
--- map('n', '<C-f>', builtin.live_grep)
--- map('n', '<leader>l', builtin.buffers)
--- map('n', '<leader>fh', builtin.help_tags)
+vim.keymap.set('n', '<C-p>', project_files, {})
+vim.keymap.set('n', '<C-]>', builtin.find_files, {})
+vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>l', builtin.buffers, {})
