@@ -161,6 +161,14 @@ require("packer").startup({
       run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    -- Better terminal
+    -- use({
+    --   "akinsho/toggleterm.nvim", tag = '*',
+    --   config = function()
+    --     require("package-config.toggleterm")
+    --   end
+    -- })
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end
