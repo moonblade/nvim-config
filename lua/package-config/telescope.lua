@@ -18,6 +18,17 @@ require("telescope").setup({
     layout_config = {
       preview_width = resolve.resolve_width(0.5),
     },
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--fixed-strings",
+      "--no-ignore-vcs",
+    }
   },
   pickers = {
     git_files = {
