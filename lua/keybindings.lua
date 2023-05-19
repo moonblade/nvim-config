@@ -22,3 +22,15 @@ map("n", "<C-l>", "<C-w>l")
 
 -- When pasting, dont change the register content
 map("x", "p", '"_dP')
+
+-- Move lines around
+ map("n", "<A-j>", ":m .+1<CR>==")
+ map("n", "<A-k>", ":m .-2<CR>==")
+ map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
+ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+ map("v", "<A-j>", ":m '>+1<CR>gv=gv")
+ map("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
+-- Tabbing lines
+map("v", "<tab>", ">gv")
+map("v", "<S-tab>", "<gv")
