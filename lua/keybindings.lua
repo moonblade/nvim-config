@@ -1,4 +1,5 @@
 local map = require("package-config.utils").map
+local randomString = require("package-config.utils").randomString
 
 -- use space as the leader key
 vim.g.mapleader = " "
@@ -34,3 +35,11 @@ map("x", "p", '"_dP')
 -- Tabbing lines
 map("v", "<tab>", ">gv")
 map("v", "<S-tab>", "<gv")
+
+-- Terminal
+map("n", "<leader>t", '', {
+  callback = function ()
+    vim.cmd("te")
+    vim.cmd("f " .. randomString(5) .. "-term")
+  end
+})
