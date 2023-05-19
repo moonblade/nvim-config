@@ -46,7 +46,7 @@ vim.opt.hlsearch = false
 
 -- Set keywords for word splits
 -- vim.opt.iskeyword:remove("_")
-vim.opt.iskeyword:add("-")
+vim.opt.iskeyword:append("-")
 
 -- Dont create swapfiles
 vim.opt.swapfile = false
