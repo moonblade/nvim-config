@@ -20,7 +20,6 @@ vim.opt.smartcase = true
 
 -- save undo files
 vim.opt.undofile = true
-vim.opt.undodir = '~/.vim/undodir'
 
 -- update chars used to render spaces and tabs
 vim.opt.listchars = { trail = ".", space = "·", tab = "»·" }

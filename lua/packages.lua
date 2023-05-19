@@ -142,6 +142,19 @@ require("packer").startup({
       end,
     }
 
+    -- Telescope
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      -- 'nvim-telescope/telescope.nvim',
+      requires = {
+        {'nvim-lua/plenary.nvim'},
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
+      config = function ()
+        require("package-config.telescope")
+      end
+    }
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end

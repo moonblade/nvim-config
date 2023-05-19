@@ -1,7 +1,4 @@
-function map(mode, lhs, rhs)
-    local options = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require("package-config.utils").map
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
@@ -14,7 +11,7 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup()
 
 -- Auto open nvimtree when startig
-vim.api.nvim_create_autocmd("VimEnter", { 
+vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd ":NvimTreeOpen"
     vim.cmd "wincmd p"
