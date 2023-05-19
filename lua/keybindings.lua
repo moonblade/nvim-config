@@ -1,11 +1,4 @@
--- Functional wrapper for mapping custom keybindings
-local function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require("package-config.utils").map
 
 -- use space as the leader key
 vim.g.mapleader = " "
@@ -20,7 +13,6 @@ map("t", "jk", "<C-\\><C-n>")
 
 -- switch between buffers
 map("n", "<leader><leader>", "<C-^>")
-map("n", "<leader>l", ":Buffers<CR>", { silent = true })
 
 -- Quicker window movement
 map("n", "<C-j>", "<C-w>j")

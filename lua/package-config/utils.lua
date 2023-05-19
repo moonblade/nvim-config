@@ -1,4 +1,6 @@
-function map(mode, lhs, rhs, opts)
+local M = {}
+
+function M.map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -6,10 +8,12 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function bufmap(mode, lhs, rhs, opts)
+function M.bufmap(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
     vim.api.nvim_buf_set_keymap(mode, lhs, rhs, options)
 end
+
+return M
