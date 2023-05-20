@@ -62,3 +62,10 @@ vim.opt.cmdheight = 2
 
 -- When moving from unsaved buffer, dont scream
 vim.o.hidden = true
+
+-- Dont add comment with o or O
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "o" }
+  end,
+})
