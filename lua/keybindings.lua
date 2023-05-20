@@ -42,3 +42,4 @@ map("n", "<leader>t", '', {
     vim.cmd('startinsert')
   end
 })
+
