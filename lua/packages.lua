@@ -169,6 +169,9 @@ require("packer").startup({
     --   end
     -- })
 
+    -- Better quoting
+    use "tpope/vim-surround"
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end
