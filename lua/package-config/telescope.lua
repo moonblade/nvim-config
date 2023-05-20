@@ -33,7 +33,10 @@ require("telescope").setup({
   pickers = {
     git_files = {
       show_untracked = true
-    }
+    },
+    find_files = {
+      no_ignore = true
+    },
   },
   extensions = {
     fzy_native = {
@@ -57,3 +60,6 @@ vim.keymap.set('n', '<C-p>', project_files, {})
 vim.keymap.set('n', '<C-]>', builtin.find_files, {})
 vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>l', builtin.buffers, {})
+
+vim.keymap.set('n', 'gst', builtin.git_status, {})
+vim.keymap.set('n', 'gbr', builtin.git_branches, {})
