@@ -172,6 +172,23 @@ require("packer").startup({
     -- Better quoting
     use "tpope/vim-surround"
 
+    -- Leap around
+    use({
+      "ggandor/leap.nvim",
+      config = function ()
+        require("package-config.leap")
+      end
+    })
+
+    -- Prettier
+    use('jose-elias-alvarez/null-ls.nvim')
+    use({
+      'MunifTanjim/prettier.nvim',
+      config = function ()
+        require("package-config.prettier")
+      end
+    })
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end

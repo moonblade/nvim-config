@@ -37,6 +37,9 @@ require("telescope").setup({
     find_files = {
       no_ignore = true
     },
+    buffers = {
+      sort_lastused = true,
+    },
   },
   extensions = {
     fzy_native = {
