@@ -1,5 +1,6 @@
 local map = require("package-config.utils").map
 local randomString = require("package-config.utils").randomString
+local getAdjective = require("package-config.adjectives").getAdjective
 
 -- use space as the leader key
 vim.g.mapleader = " "
@@ -34,11 +35,15 @@ map("n", "<tab>", ">>")
 map("v", "<tab>", ">gv")
 map("v", "<S-tab>", "<gv")
 
+-- Diff
+map("n", "<leader>j", "]c")
+map("n", "<leader>k", "[c")
+
 -- Terminal
 map("n", "<leader>t", '', {
   callback = function ()
     vim.cmd("te")
-    vim.cmd("f " .. randomString(5) .. "-term")
+    vim.cmd("f " .. getAdjective() .. "-term")
     vim.cmd('startinsert')
   end
 })
