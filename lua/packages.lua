@@ -71,6 +71,13 @@ require("packer").startup({
     }
 
     -- Better commenting 
+    -- use {
+    --   "terrortylor/nvim-comment",
+    --   config = function()
+    --     require("package-config.nvim-comment")
+    --   end
+    -- }
+
     use {
       "numToStr/Comment.nvim",
       config = function()
@@ -171,6 +178,15 @@ require("packer").startup({
 
     -- Better quoting
     use "tpope/vim-surround"
+
+    -- Unception for git commits
+    use {
+        "samjwill/nvim-unception",
+        setup = function()
+            -- Optional settings go here!
+            -- e.g.) vim.g.unception_open_buffer_in_new_tab = true
+        end
+    }
 
     -- Leap around
     use({
