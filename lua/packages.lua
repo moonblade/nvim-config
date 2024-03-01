@@ -183,7 +183,7 @@ require("packer").startup({
     use {
         "samjwill/nvim-unception",
         setup = function()
-            vim.g.unception_open_buffer_in_new_tab = true
+            -- vim.g.unception_open_buffer_in_new_tab = true
         end
     }
 
