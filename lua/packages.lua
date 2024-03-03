@@ -62,6 +62,7 @@ require("packer").startup({
     use 'kazhala/close-buffers.nvim'
     use {
       "nvim-tree/nvim-tree.lua",
+      tag = "*",
       requires = {
         'nvim-tree/nvim-web-devicons',
       },
@@ -183,7 +184,7 @@ require("packer").startup({
     use {
         "samjwill/nvim-unception",
         setup = function()
-            -- vim.g.unception_open_buffer_in_new_tab = true
+            vim.g.unception_block_while_host_edits = true
         end
     }
 
@@ -203,6 +204,34 @@ require("packer").startup({
         require("package-config.prettier")
       end
     })
+
+    -- Todo comments
+    use({
+      "folke/todo-comments.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim"
+      },
+      config = function()
+        require("package-config.todo-comments")
+      end
+    })
+
+    -- Obsidian
+    -- use({
+    --   "epwalsh/obsidian.nvim",
+    --   tag = "*",
+    --   requires = {
+    --     -- Required.
+    --     "nvim-lua/plenary.nvim",
+    --     "hrsh7th/nvim-cmp",
+    --     'nvim-telescope/telescope.nvim',
+    --     "nvim-treesitter/nvim-treesitter",
+    --
+    --   },
+    --   config = function()
+    --     require("package-config.obsidian")
+    --   end,
+    -- })
 
     if PACKER_BOOTSTRAP then
       require('packer').sync()
