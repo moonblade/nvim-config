@@ -65,4 +65,4 @@ vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>l', builtin.buffers, {})
 
 vim.keymap.set('n', 'gst', builtin.git_status, {})
-vim.keymap.set('n', 'gbr', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>b', builtin.git_branches, {})
