@@ -3,7 +3,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "pyright",
     "lua_ls",
-    "terraformls",
+    -- "terraformls@v0.32.7",
     "tflint",
     "bashls",
   },
