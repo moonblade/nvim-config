@@ -25,6 +25,7 @@ require("packer").startup({
     -- mason, for lsp config
     use {
         "williamboman/mason.nvim",
+        tag = "*",
         -- :MasonUpdate updates registry contents
         config = function()
           require("package-config.mason")
@@ -35,6 +36,7 @@ require("packer").startup({
     -- neovim lsp configs
     use({
       "williamboman/mason-lspconfig.nvim",
+        tag = "*",
       config = function()
         require("package-config.mason-lspconfig")
       end,
