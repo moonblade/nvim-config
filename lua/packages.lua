@@ -43,6 +43,7 @@ require("packer").startup({
     })
     use("neovim/nvim-lspconfig")
 
+    use("github/copilot.vim")
 
     -- auto-completion
     use({

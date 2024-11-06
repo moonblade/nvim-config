@@ -48,3 +48,4 @@ map("n", "<leader>t", '', {
   end
 })
 
+map("i", "<C-k>", "copilot#Accept('<CR>')", {expr=true, silent=true})

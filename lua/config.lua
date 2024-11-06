@@ -8,6 +8,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- the default tabstop of 8 spaces is too long, shorten it
+vim.g.copilot_no_tab_map = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
