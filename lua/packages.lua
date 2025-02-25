@@ -236,6 +236,24 @@ require("packer").startup({
     --   end,
     -- })
 
+    -- Avante
+    -- Required plugins
+    use 'stevearc/dressing.nvim'
+    use 'MunifTanjim/nui.nvim'
+    use 'MeanderingProgrammer/render-markdown.nvim'
+
+    -- Optional dependencies
+    use 'HakonHarnes/img-clip.nvim'
+
+    use {
+      'yetone/avante.nvim',
+      branch = 'main',
+      run = 'make',
+      config = function()
+        require("package-config.avante")
+      end
+    }
+
     if PACKER_BOOTSTRAP then
       require('packer').sync()
     end

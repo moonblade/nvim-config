@@ -9,17 +9,37 @@ require("mason-lspconfig").setup({
   },
 })
 
+local function on_attach(client, bufnr)
+    local augroup = vim.api.nvim_create_augroup("PyrightFormat", { clear = true })
+    if client.name == "pyright" then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.code_action({
+                    context = {
+                        only = { "source.organizeImports" }
+                    },
+                    apply = true
+                })
+            end,
+        })
+    end
+end
+
 require("mason-lspconfig").setup_handlers({
     function (server_name)
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         require("lspconfig")[server_name].setup {
           capabilities = capabilities,
+          on_attach = on_attach,
         }
     end,
 
     ["lua_ls"] = function ()
        require("lspconfig").lua_ls.setup {
+           on_attach = on_attach,
            settings = {
                Lua = {
                    diagnostics = {
