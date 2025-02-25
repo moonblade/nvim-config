@@ -1,6 +1,23 @@
 local resolve = require("telescope.config.resolve")
 local builtin = require('telescope.builtin')
 
+local fast_grep = function()
+  builtin.live_grep({
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    search = "",
+    only_sort_text = true,
+    disable_coordinates = false
+  })
+end
+
 require("telescope").setup({
   defaults = {
     mappings = {
@@ -61,7 +78,7 @@ end
 
 vim.keymap.set('n', '<C-p>', project_files, {})
 vim.keymap.set('n', '<C-]>', builtin.find_files, {})
-vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+vim.keymap.set('n', '<C-f>', fast_grep, {})
 vim.keymap.set('n', '<leader>l', builtin.buffers, {})
 
 vim.keymap.set('n', 'gst', builtin.git_status, {})
