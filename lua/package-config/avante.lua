@@ -2,6 +2,9 @@ local map = require("package-config.utils").map
 require('avante').setup({
   provider = "copilot",
   cursor_applying_provider = nil,
+  web_search_engine = {
+    provider = "google",
+  },
   copilot = {
     endpoint = "https://api.githubcopilot.com",
     model = "gpt-4o-2024-08-06",
