@@ -253,6 +253,44 @@ require("packer").startup({
         require("package-config.avante")
       end
     }
+    -- Avante End
+
+    -- Aider
+    -- snacks needed for aider
+    use {
+      "folke/snacks.nvim",
+      as = "snacks",
+      config = function()
+        require("package-config.snacks")
+      end
+    }
+    -- -- catppuccin needed for aider
+    -- use { "catppuccin/nvim", as = "catppuccin" }
+    --
+    -- -- neotree needed for aider
+    -- use({
+    --   "nvim-neo-tree/neo-tree.nvim",
+    --   branch = "v3.x",
+    --   requires = {
+    --     "nvim-lua/plenary.nvim",
+    --     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --     "MunifTanjim/nui.nvim",
+    --     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    --   }
+    -- })
+    -- use {
+    --   "GeorgesAlkhouri/nvim-aider",
+    --   cmd = { "Aider" },
+    --   requires = {
+    --     "snacks",
+    --     -- "catppuccin",
+    --     "nvim-tree/nvim-tree.lua",
+    --   },
+    --   config = function()
+    --     require("package-config.aider")
+    --   end
+    -- }
+    -- -- Aider end
 
     if PACKER_BOOTSTRAP then
       require('packer').sync()

@@ -70,3 +70,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.opt.formatoptions = vim.opt.formatoptions - { "c", "o" }
   end,
 })
+
+-- Auto reload buffer if it changed on disk
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  pattern = "*",
+  callback = function()
+    if vim.fn.getcmdwintype() == '' then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
+-- Display notification on reload
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.INFO)
+  end,
+})

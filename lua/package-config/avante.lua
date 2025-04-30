@@ -1,6 +1,7 @@
 local map = require("package-config.utils").map
 require('avante').setup({
-  provider = "copilot",
+  -- provider = "copilot",
+  provider = "azure",
   cursor_applying_provider = nil,
   web_search_engine = {
     provider = "google",
@@ -16,7 +17,7 @@ require('avante').setup({
   },
   azure = {
     endpoint = "https://cvazureaice.openai.azure.com",
-    api_version = "2024-08-06",
+    api_version = "2023-05-15",
     deployment = "gpt-4o",
     timeout = 30000,
     temperature = 0,
